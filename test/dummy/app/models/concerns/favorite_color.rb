@@ -7,7 +7,7 @@ module FavoriteColor
   end
 
   def ensure_correct_favorite_color
-    return if ApplicationHelper::COLOR_NAMES.any?{ |s| s.casecmp(favorite_color)==0 } ||
+    return if ApplicationHelper::COLOR_NAMES.any? { |s| s.casecmp(favorite_color).zero? } ||
               !(favorite_color && (favorite_color != ''))
 
     matches = ApplicationHelper::COLOR_SEARCH.search(favorite_color)
